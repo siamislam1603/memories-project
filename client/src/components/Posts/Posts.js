@@ -8,8 +8,11 @@ function Posts() {
   return (
     <>
         <h1>Posts</h1>
-        <Post></Post>
-        <Post></Post>
+        <div className="row">
+            {posts.map(post=><div className="col-xs-12 col-sm-6" key={'post-'+post._id}>
+                <Post post={post}/>
+            </div>)}
+        </div>
     </>
   )
 }

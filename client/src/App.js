@@ -9,7 +9,7 @@ import PostForm from './components/PostForm/PostForm';
 function App() {
   const dispatch=useDispatch();
   useEffect(() => {
-    dispatch(getPosts);
+    dispatch(getPosts());
   }, [dispatch]);
   
   return (

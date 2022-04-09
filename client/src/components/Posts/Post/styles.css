@@ -1,0 +1,33 @@
+.post-img{
+    border-radius: 16px 16px 0 0;
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+.overlay-div{
+    position: relative;
+}
+.overlay-div #post-overlay{
+    position: absolute;
+    top: 0.75rem;
+    width: 100%;
+}
+.like-btn,.dlt-btn{
+    cursor: pointer;
+}
+.like-btn:hover{
+    color: #1890FF;
+}
+.dlt-btn:hover{
+    color: rgba(255, 0, 0, 0.5);
+}
+.dlt-btn .toggled{
+    color: rgba(255, 0, 0, 0.5);
+}
+.like-btn .toggled{
+    color:#1890FF;
+    font-weight: 500;
+}
+.overlay-txt{
+    color: white;
+}
