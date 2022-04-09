@@ -1,10 +1,10 @@
 import './App.css';
-import Form from './components/Form/Form';
 import Posts from './components/Posts/Posts';
 import LogoSVG from './components/SVGs/LogoSVG';
 import {useDispatch} from 'react-redux';
 import { useEffect } from 'react';
 import {getPosts} from './actions/posts';
+import PostForm from './components/PostForm/PostForm';
 
 function App() {
   const dispatch=useDispatch();
@@ -20,7 +20,7 @@ function App() {
           <Posts></Posts>
         </div>
         <div className="col-xs-12 col-sm-4">
-          <Form></Form>
+          <PostForm></PostForm>
         </div>
       </div>
     </div>
