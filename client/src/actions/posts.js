@@ -18,3 +18,16 @@ export const createPost=(newPost)=>async(dispatch)=>{
         console.log(error.message);
     }
 }
+
+export const patchPost=(newPost)=>async(dispatch)=>{
+    try {
+        const {data}=await api.patchPost(newPost);
+        dispatch({type:'UPDATE',payload:data});
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const updateActivePost=(post)=>async(dispatch)=>{
+    dispatch({type:'post-clicked',payload:post});
+}

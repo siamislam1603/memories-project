@@ -4,12 +4,15 @@ import moment from 'moment';
 import React, { useState } from 'react';
 import './styles.css';
 import { EllipsisOutlined,LikeOutlined,DeleteOutlined } from '@ant-design/icons';
+import { useDispatch } from 'react-redux';
+import { updateActivePost } from '../../../actions/posts';
 
 function Post({post}) {
   const [likeToggled,setLikeToggled]=useState(false);
   const [deleteToggled,setDeleteToggled]=useState(false);
   const likeToggledStyle={color:'#1890FF',fontWeight:600};
   const deleteToggledStyle={color:'rgba(255, 0, 0, 0.5)'};
+  const dispatch=useDispatch();
   return (
     <Card
         style={{ borderRadius:'15px' }}
@@ -21,7 +24,7 @@ function Post({post}) {
                     <h2 className='overlay-txt'>{post.title}</h2>
                     <h5 className='overlay-txt'>{moment(post.createdAt).fromNow()}</h5>
                 </div>
-                <Button shape="circle" icon={<EllipsisOutlined />} />
+                <Button shape="circle" icon={<EllipsisOutlined />} onClick={()=>dispatch(updateActivePost(post))}/>
             </div>
         </div>
         }
