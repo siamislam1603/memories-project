@@ -1,7 +1,8 @@
 .post-img{
-    border-radius: 16px 16px 0 0;
+    border-radius: 15px 15px 0 0 !important;
     width: 100%;
-    object-fit: contain;
+    height: 200px;
+    object-fit: cover;
     object-position: center;
 }
 .overlay-div{
@@ -30,4 +31,5 @@
 }
 .overlay-txt{
     color: white;
+    text-shadow: 3px 2px 7px black;
 }

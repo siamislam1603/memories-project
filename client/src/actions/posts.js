@@ -28,6 +28,25 @@ export const patchPost=(newPost)=>async(dispatch)=>{
     }
 }
 
+export const deletePost=(id)=>async(dispatch)=>{
+     try {
+        const {data}=await api.deletePost(id);
+        console.log(data,'delete')
+        dispatch({type:'DELETE',payload:id});
+     } catch (error) {
+         console.log(error);
+     }
+}
+
+export const likePost=(id)=>async(dispatch)=>{
+    try {
+        const {data}=await api.likePost(id);
+        dispatch({type:'LIKE_UPDATE',payload:data});
+    } catch (error) {
+        
+    }
+}
+
 export const updateActivePost=(post)=>async(dispatch)=>{
     dispatch({type:'post-clicked',payload:post});
 }
