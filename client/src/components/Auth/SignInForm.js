@@ -1,10 +1,13 @@
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import React from "react";
 
 const SignInForm = () => {
+  const onFinish = (values) => {
+    console.log('Success:', values);
+  };
   return (
     <>
-    <Form name="basic" layout="vertical" autoComplete="off">
+    <Form name="basic" layout="vertical" autoComplete="off" onFinish={onFinish}>
       <Form.Item
         label="Email Address"
         name="email"
@@ -29,10 +32,6 @@ const SignInForm = () => {
         ]}
       >
         <Input.Password />
-      </Form.Item>
-
-      <Form.Item name="remember" valuePropName="checked">
-        <Checkbox>Remember me</Checkbox>
       </Form.Item>
 
       <Form.Item>

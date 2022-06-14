@@ -2,9 +2,12 @@ import { Button, Form, Input } from 'antd'
 import React from 'react'
 
 const SignUpForm = () => {
+  const onFinish = (values) => {
+    console.log('Success:', values);
+  };
   return (
     <>
-    <Form name="basic" layout="vertical" autoComplete="off">
+    <Form name="basic" layout="vertical" autoComplete="off" onFinish={onFinish}>
       <Form.Item label="User Name">
         <Input.Group compact>
           <Form.Item
