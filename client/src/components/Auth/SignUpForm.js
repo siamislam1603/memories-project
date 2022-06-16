@@ -1,10 +1,15 @@
 import { Button, Form, Input } from 'antd'
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { authenticate } from '../../actions/posts';
 
 const SignUpForm = () => {
+  const dispatch=useDispatch();
   const onFinish = (values) => {
-    console.log('Success:', values);
+    const {name,...rest}=values;
+    dispatch(authenticate({...rest,...name,isLogin:false}));
   };
+  const auth=useSelector(state=>state.auth);
   return (
     <>
     <Form name="basic" layout="vertical" autoComplete="off" onFinish={onFinish}>
@@ -31,7 +36,8 @@ const SignUpForm = () => {
         name="email"
         rules={[
           {
-            required: true,
+            type: 'email',
+            required: auth?.email ?? true,
             message: "Email Address",
           },
         ]}
@@ -44,7 +50,7 @@ const SignUpForm = () => {
         name="password"
         rules={[
           {
-            required: true,
+            required: auth?.password ?? true,
             message: "Enter password",
           },
         ]}
@@ -54,10 +60,10 @@ const SignUpForm = () => {
 
       <Form.Item
         label="Repeat Password"
-        name="repeatPassword"
+        name="confirmPassword"
         rules={[
           {
-            required: true,
+            required: auth?.password ?? true,
             message: "Repeat password",
           },
         ]}

@@ -50,3 +50,14 @@ export const likePost=(id)=>async(dispatch)=>{
 export const updateActivePost=(post)=>async(dispatch)=>{
     dispatch({type:'post-clicked',payload:post});
 }
+
+export const authenticate=(params)=>async(dispatch)=>{
+    try {
+        const {isLogin,...restParams}=params;
+        const {data}=isLogin ? await api.signin(restParams) : await api.signup(restParams);
+        console.log(data)
+        dispatch({type:'auth',payload:data});
+    } catch (error) {
+        console.log(error,'auth');
+    }
+}

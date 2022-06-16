@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import { CONNECTION_URL } from './connection_url.js';
 import router from './routes/posts.js';
+import userRoutes from './routes/users.js';
 
 const app=express();
 
@@ -14,6 +15,7 @@ app.get('/',(req,res)=>{
     res.send('Welcome to the clone memories app');
 });
 app.use('/posts',router);
+app.use('/user',userRoutes);
 
 const PORT=process.env.PORT || 5000;
 mongoose.connect(CONNECTION_URL,{useNewUrlParser:true,useUnifiedTopology:true})
